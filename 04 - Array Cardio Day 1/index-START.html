@@ -45,13 +45,11 @@
       }
     );*/
     const inventFifteen = inventors.filter(inventor => inventor.year >= 1500 && inventor.year <1600)
-    console.log(inventFifteen);
     console.table(inventFifteen);
 
     // Array.prototype.map()
     // 2. Give us an array of the inventors first and last names
     const inventorFirstLast = inventors.map(inventor => `${inventor.first} ${inventor.last}`);
-    console.log(inventorFirstLast);
     console.table(inventorFirstLast);
 
     // Array.prototype.sort()
@@ -75,13 +73,9 @@
 
     // 5. Sort the inventors by years lived
     const oldest = inventors.sort(function(a,b){
-      const aYears = a.passed - a.years;
-      const bYears = b.passed - b.years;
-      if(aYears > bYears){
-        return 1;
-      }else{
-        return -1;
-      }
+      const aYears = a.passed - a.year;
+      const bYears = b.passed - b.year;
+      return aYears > bYears ? -1:1;
     })
     console.table(oldest);
 
